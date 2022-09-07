@@ -26,6 +26,7 @@ export class PokedexComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.pokedex.getPokemon().subscribe((pokemon) => {
+      console.log("pokemon", pokemon);
       this.count = pokemon.count;
       this.pokemonList = pokemon.results;
       this.next = pokemon.next;
@@ -70,7 +71,7 @@ export class PokedexComponent implements OnInit, OnDestroy {
     this.searchTerm.next(term);
   }
 
-  onNavigate(goBack: boolean) {
+  onNavigate(goBack?: boolean) {
     goBack ? this.loadMore.next(this.prev) : this.loadMore.next(this.next);
   }
 }
