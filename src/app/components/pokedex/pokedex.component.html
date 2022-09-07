@@ -1,0 +1,11 @@
+<section>
+  <h1>Pokedex</h1>
+  <app-searchbar (searchTerm)="onSearch($event)"></app-searchbar>
+  <ul *ngFor="let pokemon of pokemonList">
+    <li>{{pokemon.name}}</li>
+  </ul>
+  <div>
+    <button type="button" class="btn" (click)="onNavigate(true)">Previous</button>
+    <button type=" button" class="btn" (click)="onNavigate()">Next</button>
+  </div>
+</section>
